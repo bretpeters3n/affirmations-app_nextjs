@@ -8,6 +8,7 @@ import {
   // SignedOut,
   // UserButton,
 } from '@clerk/nextjs'
+import { prisma } from '@/utils/db'
 
 export default async function Home() {
   const { userId } = await auth()
