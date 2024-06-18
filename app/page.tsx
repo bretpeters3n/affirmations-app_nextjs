@@ -9,6 +9,7 @@ import {
   // UserButton,
 } from '@clerk/nextjs'
 import { prisma } from '@/utils/db'
+// import '@/css/splide-core.min.css'
 
 export default async function Home() {
   const { userId } = await auth()

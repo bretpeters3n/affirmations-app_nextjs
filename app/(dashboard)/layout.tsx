@@ -1,11 +1,13 @@
 import Navigation from '@/components/Navigation'
-import '../../css/Nav.css'
+import '@splidejs/react-splide/css'
+import '@/css/Nav.css'
+import '@/css/splideExtra.css'
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className="">
+    <div className="h-full">
       <Navigation />
-      <div className="">{children}</div>
+      {children}
     </div>
   )
 }

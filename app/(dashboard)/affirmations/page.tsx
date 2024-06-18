@@ -1,6 +1,6 @@
 import { prisma } from '@/utils/db'
 import { getUserByClerkID } from '@/utils/auth'
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide'
+import SplideShow from '@/components/SplideShow'
 
 const Affirmations = async () => {
   const user = await getUserByClerkID()
@@ -74,29 +74,35 @@ const Affirmations = async () => {
   const userEntries = getUser.entries
   const userEmail = getUser.email
 
-  // TODO: import and install @splidejs/react-splide
   // TODO: create page structure for Splide slideshow
 
   return (
-    <div className="flex flex-col h-screen w-screen">
-      <div className="flex flex-col items-center justify-center h-full">
-        <div>affirmations</div>
-        <div>{getUser ? `user found` : `user not found`}</div>
-        <div>{userEmail}</div>
-        <div>{userEntries ? `entries exist` : `no entries exist`}</div>
-        {/* <div>{sampleEntries[0].content}</div> */}
-        <ul>
-          {sampleEntries[0].content.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-        {/* <ul>
-          {userEntries[0].content.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul> */}
-      </div>
-    </div>
+    <section className="h-full">
+      <SplideShow
+        id={sampleEntries[0].id}
+        title={sampleEntries[0].title}
+        content={sampleEntries[0].content}
+      ></SplideShow>
+    </section>
+    // <div className="flex flex-col h-screen w-screen">
+    //   <div className="flex flex-col items-center justify-center h-full">
+    //     <div>affirmations</div>
+    //     <div>{getUser ? `user found` : `user not found`}</div>
+    //     <div>{userEmail}</div>
+    //     <div>{userEntries ? `entries exist` : `no entries exist`}</div>
+    //     {/* <div>{sampleEntries[0].content}</div> */}
+    //     <ul>
+    //       {sampleEntries[0].content.map((item, i) => (
+    //         <li key={i}>{item}</li>
+    //       ))}
+    //     </ul>
+    //     {/* <ul>
+    //       {userEntries[0].content.map((item, i) => (
+    //         <li key={i}>{item}</li>
+    //       ))}
+    //     </ul> */}
+    //   </div>
+    // </div>
   )
 }
 
