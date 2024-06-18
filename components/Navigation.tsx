@@ -17,8 +17,10 @@ const Navigation = () => {
     setIsActive((current) => !current)
   }
 
+  //TODO: Add gradient line at bottom of navigation
+
   return (
-    <nav className="tm-gradient text-slate-700 font-manrope text-xl z-10 pointer-events-none flex flex-row h-[60px]">
+    <nav className="btm-gradient text-slate-700 font-manrope text-xl z-10 pointer-events-none flex flex-row h-[60px]">
       <div className="">
         <button
           type="button"
