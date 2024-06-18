@@ -9,6 +9,7 @@ import {
   // SignedOut,
   // UserButton,
 } from '@clerk/nextjs'
+import '@/css/normalize.css'
 import './globals.css'
 
 const inter = Inter({

@@ -18,7 +18,7 @@ const SplideShow = ({ id, title, content }) => {
         options={{
           pagination: false,
           pauseOnHover: false,
-          arrows: true,
+          arrows: false,
           type: 'fade',
           rewind: true,
           autoplay: true,
