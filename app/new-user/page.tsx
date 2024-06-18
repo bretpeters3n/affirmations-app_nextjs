@@ -29,9 +29,13 @@ const createNewUser = async () => {
       data: {
         clerkId: user.id,
         email: user?.emailAddresses[0].emailAddress,
+        // TODO: use shortUUID to generate 'currentGroupId' and first entries ID
+        // this is required for anyone to share this group with others
+        currentGroupId: 'fkuT6N',
         entries: {
           create: [
             {
+              id: 'fkuT6N',
               title: 'Default Affirmations',
               content: [
                 'You got this',

@@ -16,6 +16,7 @@ const Affirmations = async () => {
 
   const sampleEntries = [
     {
+      id: 'fkuT6N',
       title: 'Default Affirmations',
       content: [
         'You got this',
@@ -69,6 +70,8 @@ const Affirmations = async () => {
     }, // Populates userId with user's id
   ]
 
+  const userEnties = getUser.entries
+
   return (
     <div className="flex flex-col h-screen w-screen">
       <div className="flex flex-col items-center justify-center h-full">
@@ -82,6 +85,11 @@ const Affirmations = async () => {
             <li key={i}>{item}</li>
           ))}
         </ul>
+        {/* <ul>
+          {userEnties[0].content.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul> */}
       </div>
     </div>
   )
