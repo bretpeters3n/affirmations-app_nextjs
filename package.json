@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^5.1.4",
     "@prisma/client": "^5.15.0",
+    "@splidejs/react-splide": "^0.7.12",
     "@sqlitecloud/drivers": "^1.0.122",
     "next": "^14.2.4",
     "react": "^18",

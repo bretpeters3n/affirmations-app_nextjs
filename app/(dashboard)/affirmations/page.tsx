@@ -1,5 +1,6 @@
 import { prisma } from '@/utils/db'
 import { getUserByClerkID } from '@/utils/auth'
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide'
 
 const Affirmations = async () => {
   const user = await getUserByClerkID()
@@ -67,18 +68,22 @@ const Affirmations = async () => {
         'Don’t forget to enjoy the journey',
         'It’s not a mistake, it’s a learning opportunity',
       ],
-    }, // Populates userId with user's id
+    }, // hardcoded sample entries to test with
   ]
 
-  const userEnties = getUser.entries
+  const userEntries = getUser.entries
+  const userEmail = getUser.email
+
+  // TODO: import and install @splidejs/react-splide
+  // TODO: create page structure for Splide slideshow
 
   return (
     <div className="flex flex-col h-screen w-screen">
       <div className="flex flex-col items-center justify-center h-full">
         <div>affirmations</div>
         <div>{getUser ? `user found` : `user not found`}</div>
-        <div>{getUser.email}</div>
-        <div>{getUser.entries ? `entries exist` : `no entries exist`}</div>
+        <div>{userEmail}</div>
+        <div>{userEntries ? `entries exist` : `no entries exist`}</div>
         {/* <div>{sampleEntries[0].content}</div> */}
         <ul>
           {sampleEntries[0].content.map((item, i) => (
@@ -86,7 +91,7 @@ const Affirmations = async () => {
           ))}
         </ul>
         {/* <ul>
-          {userEnties[0].content.map((item, i) => (
+          {userEntries[0].content.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul> */}
