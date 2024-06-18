@@ -17,8 +17,6 @@ const Navigation = () => {
     setIsActive((current) => !current)
   }
 
-  //TODO: Add gradient line at bottom of navigation
-
   return (
     <nav className="btm-gradient text-slate-700 font-manrope text-xl z-10 pointer-events-none flex flex-row h-[60px]">
       <div className="">
@@ -94,7 +92,7 @@ const Navigation = () => {
         Affirmations
       </div>
 
-      <div className="z-20 pointer-events-auto absolute top-4 right-4">
+      <div className="pointer-events-auto absolute top-4 right-4">
         <UserButton />
       </div>
     </nav>
