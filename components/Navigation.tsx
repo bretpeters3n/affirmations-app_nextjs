@@ -9,6 +9,9 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 import Link from 'next/link'
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 
 const Navigation = () => {
   const [isActive, setIsActive] = useState(false)
@@ -58,31 +61,31 @@ const Navigation = () => {
               : 'font-semibold flex flex-col items-center m-auto z-20 pointer-events-auto'
           }
         >
-          <li className="w-max hover:font-extrabold">
+          <li className="w-max">
             <Link
               href={'/'}
               onClick={handleHamClick}
               className="theme-switcher"
             >
-              Home
+              <PlayArrowOutlinedIcon fontSize="large" />
             </Link>
           </li>
-          <li className="w-max hover:font-extrabold">
+          <li className="w-max">
             <Link
               href="/affirmations"
               onClick={handleHamClick}
               className="theme-switcher"
             >
-              Affirmations
+              <SettingsOutlinedIcon fontSize="large" />
             </Link>
           </li>
-          <li className="w-max hover:font-extrabold">
+          <li className="w-max">
             <Link
               href="/about"
               onClick={handleHamClick}
               className="theme-switcher"
             >
-              About
+              <InfoOutlinedIcon fontSize="large" />
             </Link>
           </li>
         </ul>

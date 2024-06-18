@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* OLD; erase eventually */
-  /* --main-bg-color-dark: rgb(50, 50, 50);
+/* :root { */
+/* OLD; erase eventually */
+/* --main-bg-color-dark: rgb(50, 50, 50);
   --main-bg-color-light: rgb(250, 250, 250); */
 
-  /* NEW; keep */
-  --menuOpacity: 0.96;
-  /* --primaryColor: rgb(50, 50, 50); */
-  --primaryColor: #323232;
+/* NEW; keep */
+/* --menuOpacity: 0.96; */
+/* --primaryColor: rgb(50, 50, 50); */
+/* --primaryColor: #323232;
   --secondaryColor: rgb(150, 150, 150);
   --navigationBackground: rgba(255, 26, 117, var(--menuOpacity));
-  --white: #ffffff;
-  /* --backgroundColor: rgb(250, 250, 250); */
-  --backgroundColorOpacity: rgba(239, 68, 68, var(--menuOpacity));
+  --white: #ffffff; */
+/* --backgroundColor: rgb(250, 250, 250); */
+/* --backgroundColorOpacity: rgba(239, 68, 68, var(--menuOpacity));
   --primaryBtnColor: rgb(87, 228, 0);
   --menuLineGradient: linear-gradient(
       to right,
@@ -23,9 +23,9 @@
       var(--primaryColor),
       rgba(50, 50, 50, 0)
     )
-    1;
-  /* --menuLineStyle: 1px solid transparent; */
+    1; */
+/* --menuLineStyle: 1px solid transparent; */
 
-  --main-font: 'Inter', system-ui, Helvetica, Arial, sans-serif;
-  /* --attention-font: 'Asset', Times New Roman, Georgia, serif; */
-}
+/* --main-font: 'Inter', system-ui, Helvetica, Arial, sans-serif; */
+/* --attention-font: 'Asset', Times New Roman, Georgia, serif; */
+/* } */
