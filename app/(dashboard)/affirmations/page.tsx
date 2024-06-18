@@ -68,13 +68,16 @@ const Affirmations = async () => {
         'Don’t forget to enjoy the journey',
         'It’s not a mistake, it’s a learning opportunity',
       ],
+    },
+    {
+      id: '000111',
+      title: 'More Affirmations',
+      content: ['Slide 01', 'Slide 02', 'Slide 03'],
     }, // hardcoded sample entries to test with
   ]
 
   const userEntries = getUser.entries
   const userEmail = getUser.email
-
-  // TODO: create page structure for Splide slideshow
 
   return (
     <section className="h-full">
