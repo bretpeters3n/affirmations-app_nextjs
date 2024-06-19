@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^5.1.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.20",
+    "@mui/material": "^5.15.20",
     "@prisma/client": "^5.15.0",
     "@splidejs/react-splide": "^0.7.12",
     "@sqlitecloud/drivers": "^1.0.122",

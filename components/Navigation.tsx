@@ -63,7 +63,7 @@ const Navigation = () => {
         >
           <li className="w-max">
             <Link
-              href={'/'}
+              href={'/affirmations'}
               onClick={handleHamClick}
               className="theme-switcher"
             >
@@ -72,7 +72,7 @@ const Navigation = () => {
           </li>
           <li className="w-max">
             <Link
-              href="/affirmations"
+              href="/savedaffirmations"
               onClick={handleHamClick}
               className="theme-switcher"
             >

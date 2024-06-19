@@ -1,8 +1,11 @@
 import { prisma } from '@/utils/db'
 import { getUserByClerkID } from '@/utils/auth'
-import SplideShow from '@/components/SplideShow'
+import TextField from '@mui/material/TextField'
+import MenuItem from '@mui/material/MenuItem'
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete'
 
-const Affirmations = async () => {
+const SavedAffirmations = async () => {
   const user = await getUserByClerkID()
 
   const getUser = await prisma.user.findUnique({
@@ -77,9 +80,8 @@ const Affirmations = async () => {
     }, // hardcoded sample entries to test with
   ]
 
-  // const userEntries = getUser.entries
-  // const userEmail = getUser.email
   const userCurrentGroupId = getUser.currentGroupId
+  const addNewGroupMessaging = '+ Create new group'
 
   const currentEntries = sampleEntries.find(
     (x) => x.id === userCurrentGroupId
@@ -90,33 +92,48 @@ const Affirmations = async () => {
   ).title
 
   return (
-    <section className="h-full">
-      <SplideShow
-        id={currentId}
-        title={currentTitle}
-        content={currentEntries}
-      ></SplideShow>
+    <section className="">
+      <TextField
+        style={{
+          width: '100%',
+          maxWidth: '500px',
+          textAlign: 'left',
+        }}
+        select
+        id="outlined-select-currency"
+        label="Please select or create new group"
+        // value={currentTitle}
+        // onChange={(e) => {
+        //   let tempTarget = e.target.value
+        //   console.log(tempTarget)
+        //   if (tempTarget == addNewGroupMessaging) {
+        //     // setShowNewGroupModal(true)
+        //   } else {
+        //     // setCurrentGroup(tempTarget)
+        //   }
+        // }}
+      >
+        // TODO: Add the remaining elements from previous version of project
+        {/* {affirmationsData[0].groups.map((groups) => ( */}
+        {currentEntries.map((groups) => (
+          <MenuItem
+            id={groups.id}
+            key={groups.id}
+            style={{ fontFamily: 'Poppins' }}
+            // value={groups.group}
+          >
+            {groups.group}
+          </MenuItem>
+        ))}
+        <MenuItem
+          style={{ fontFamily: 'Poppins' }}
+          // value={addNewGroupMessaging}
+        >
+          {addNewGroupMessaging}
+        </MenuItem>
+      </TextField>
     </section>
-    // <div className="flex flex-col h-screen w-screen">
-    //   <div className="flex flex-col items-center justify-center h-full">
-    //     <div>affirmations</div>
-    //     <div>{getUser ? `user found` : `user not found`}</div>
-    //     <div>{userEmail}</div>
-    //     <div>{userEntries ? `entries exist` : `no entries exist`}</div>
-    //     {/* <div>{sampleEntries[0].content}</div> */}
-    //     <ul>
-    //       {sampleEntries[0].content.map((item, i) => (
-    //         <li key={i}>{item}</li>
-    //       ))}
-    //     </ul>
-    //     {/* <ul>
-    //       {userEntries[0].content.map((item, i) => (
-    //         <li key={i}>{item}</li>
-    //       ))}
-    //     </ul> */}
-    //   </div>
-    // </div>
   )
 }
 
-export default Affirmations
+export default SavedAffirmations
