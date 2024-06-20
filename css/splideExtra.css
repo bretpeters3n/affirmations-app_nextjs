@@ -95,3 +95,32 @@ li {
   bottom: 0px;
   width: 100vw;
 }
+
+/*MUI*/
+.MuiInputBase-root .MuiSelect-select {
+  font-family: 'Poppins';
+  font-size: 1.2rem;
+  padding-bottom: 0.7rem;
+}
+.search-params label {
+  display: block;
+  letter-spacing: 0.06rem;
+}
+
+/*Other*/
+.cardEdit {
+  /* position: absolute; */
+  /* display: block; */
+  /* height: 100%; */
+  width: 30px;
+  /* right: 0.75rem; */
+  /* border-radius: 0 4px 4px 0; */
+  /* border: unset; */
+  padding: 0.2rem 0.2rem;
+  /* margin: -1rem 0 0 0; */
+  /* margin: auto 0; */
+  background-color: var(--secondaryColor);
+  /* cursor: pointer; */
+  /* transition: border-color 0.25s; */
+  color: var(--primaryColor);
+}
