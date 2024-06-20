@@ -5,9 +5,9 @@ import '@/css/splideExtra.css'
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="h-full">
       <Navigation />
-      <div className="mt-[6rem] mx-4">{children}</div>
+      <div className="mt-[5.5rem] mx-4">{children}</div>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
+import EntriesDropDown from '@/components/EntriesDropDown'
 
 const SavedAffirmations = async () => {
   const user = await getUserByClerkID()
@@ -81,7 +82,6 @@ const SavedAffirmations = async () => {
   ]
 
   const userCurrentGroupId = getUser.currentGroupId
-  const addNewGroupMessaging = '+ Create new group'
 
   const currentEntries = sampleEntries.find(
     (x) => x.id === userCurrentGroupId
@@ -90,48 +90,19 @@ const SavedAffirmations = async () => {
   const currentTitle = sampleEntries.find(
     (x) => x.id === userCurrentGroupId
   ).title
+  console.log(currentTitle)
 
   return (
     <section className="">
-      <TextField
-        style={{
-          width: '100%',
-          maxWidth: '500px',
-          textAlign: 'left',
-        }}
-        select
-        id="outlined-select-currency"
-        label="Please select or create new group"
-        // value={currentTitle}
-        // onChange={(e) => {
-        //   let tempTarget = e.target.value
-        //   console.log(tempTarget)
-        //   if (tempTarget == addNewGroupMessaging) {
-        //     // setShowNewGroupModal(true)
-        //   } else {
-        //     // setCurrentGroup(tempTarget)
-        //   }
-        // }}
-      >
-        // TODO: Add the remaining elements from previous version of project
-        {/* {affirmationsData[0].groups.map((groups) => ( */}
-        {currentEntries.map((groups) => (
-          <MenuItem
-            id={groups.id}
-            key={groups.id}
-            style={{ fontFamily: 'Poppins' }}
-            // value={groups.group}
-          >
-            {groups.group}
-          </MenuItem>
-        ))}
-        <MenuItem
-          style={{ fontFamily: 'Poppins' }}
-          // value={addNewGroupMessaging}
-        >
-          {addNewGroupMessaging}
-        </MenuItem>
-      </TextField>
+      <h1 className="text-center text-[2.5rem] leading-10 pb-3">
+        Saved Affirmations
+      </h1>
+      <EntriesDropDown
+        id={currentId}
+        title={currentTitle}
+        content={currentEntries}
+        sampleEntries={sampleEntries}
+      ></EntriesDropDown>
     </section>
   )
 }
