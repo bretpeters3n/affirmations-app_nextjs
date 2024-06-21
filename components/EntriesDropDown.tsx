@@ -33,8 +33,6 @@ const EntriesDropDown = ({ id, title, content, sampleEntries }) => {
         }
       }}
     >
-      // TODO: Place sampleEntries in an external file // TODO: Add the
-      remaining elements from previous version of project
       {/* {affirmationsData[0].groups.map((groups) => ( */}
       {sampleEntries.map((item) => (
         <MenuItem
