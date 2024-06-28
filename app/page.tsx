@@ -23,7 +23,8 @@ export default async function Home() {
           src="/Af-logo.svg"
           width={200}
           height={200}
-          alt="Picture of the author"
+          alt="Affirmations App logo. Visually, the letters A and F in a box."
+          priority={true}
         />
         <div className="">Affirmations App</div>
         <div className="">Motivate yourself to do what you do</div>
