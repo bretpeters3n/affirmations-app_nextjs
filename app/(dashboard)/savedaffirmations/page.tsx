@@ -47,6 +47,7 @@ const SavedAffirmations = async () => {
           sampleEntries={sampleEntries}
         ></EntriesDropDown>
       </div>
+      {/* TODO: Either create a global context to store the current affirmation group OR nest EntriesDisplay inside EntriesDropDown */}
       <div className="pt-10">
         <EntriesDisplay
           id={currentId}
