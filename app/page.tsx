@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import Link from 'next/link'
+import Tilt from 'react-parallax-tilt'
 import {
   // ClerkProvider,
   SignInButton,
@@ -9,6 +10,7 @@ import {
   // UserButton,
 } from '@clerk/nextjs'
 import { prisma } from '@/utils/db'
+import LogoTilt from '@/components/LogoTilt'
 // import '@/css/splide-core.min.css'
 
 export default async function Home() {
@@ -19,13 +21,7 @@ export default async function Home() {
   return (
     <main className="flex flex-col h-screen w-screen">
       <section className="flex flex-col items-center justify-center h-full w-full gap-4">
-        <Image
-          src="/Af-logo.svg"
-          width={200}
-          height={200}
-          alt="Affirmations App logo. Visually, the letters A and F in a box."
-          priority={true}
-        />
+        <LogoTilt />
         <div className="">Affirmations App</div>
         <div className="">Motivate yourself to do what you do</div>
         <Link href={href} className="border-solid border-2 border-sky-500">
