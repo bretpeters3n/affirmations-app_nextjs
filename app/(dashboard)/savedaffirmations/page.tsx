@@ -9,7 +9,7 @@ import EntriesDisplay from '@/components/EntriesDisplay'
 import importedSampleEntries from '@/db/sampleEntries'
 
 const SavedAffirmations = async () => {
-  const sampleEntries = importedSampleEntries
+  // const sampleEntries = importedSampleEntries
   const user = await getUserByClerkID()
 
   const getUser = await prisma.user.findUnique({
@@ -25,14 +25,32 @@ const SavedAffirmations = async () => {
 
   const userCurrentGroupId = getUser.currentGroupId
 
-  const currentEntries = sampleEntries.find(
+  const userEntries = getUser.entries
+
+  const userEntryIds = userEntries.map(({ id }) => id)
+  const userEntryTitles = userEntries.map(({ title }) => title)
+
+  const currentEntries = userEntries.find(
     (x) => x.id === userCurrentGroupId
   ).content
-  const currentId = sampleEntries.find((x) => x.id === userCurrentGroupId).id
-  const currentTitle = sampleEntries.find(
+  const currentId = userEntries.find((x) => x.id === userCurrentGroupId).id
+  const currentTitle = userEntries.find(
     (x) => x.id === userCurrentGroupId
   ).title
-  console.log(currentTitle)
+  // const currentEntries = sampleEntries.find(
+  //   (x) => x.id === userCurrentGroupId
+  // ).content
+  // const currentId = sampleEntries.find((x) => x.id === userCurrentGroupId).id
+  // const currentTitle = sampleEntries.find(
+  //   (x) => x.id === userCurrentGroupId
+  // ).title
+  console.log('currentTitle: ' + currentTitle)
+  console.log('currentId: ' + currentId)
+  console.log('userCurrentGroupId: ' + userCurrentGroupId)
+  console.log('userEntries: ' + userEntries)
+  console.log('userEntryIds: ' + userEntryIds)
+  console.log('userEntryTitles: ' + userEntryTitles)
+  console.log('currentEntries: ' + currentEntries)
 
   return (
     <section className="">
@@ -44,18 +62,22 @@ const SavedAffirmations = async () => {
           id={currentId}
           title={currentTitle}
           content={currentEntries}
-          sampleEntries={sampleEntries}
+          userEntries={userEntries}
+          userEntryIds={userEntryIds}
+          userEntryTitles={userEntryTitles}
+          // sampleEntries={sampleEntries}
         ></EntriesDropDown>
       </div>
       {/* TODO: Either create a global context to store the current affirmation group OR nest EntriesDisplay inside EntriesDropDown */}
-      <div className="pt-10">
+      {/* TODO: Trying nesting option first */}
+      {/* <div className="pt-10">
         <EntriesDisplay
           id={currentId}
           title={currentTitle}
           content={currentEntries}
           sampleEntries={sampleEntries}
         ></EntriesDisplay>
-      </div>
+      </div> */}
     </section>
   )
 }

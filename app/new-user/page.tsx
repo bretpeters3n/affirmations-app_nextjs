@@ -87,6 +87,11 @@ const createNewUser = async () => {
                 'It’s not a mistake, it’s a learning opportunity',
               ],
             },
+            {
+              id: '000111',
+              title: 'More Affirmations',
+              content: ['Slide 01', 'Slide 02', 'Slide 03'],
+            },
           ],
         },
       },
