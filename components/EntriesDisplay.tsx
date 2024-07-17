@@ -3,6 +3,7 @@
 // import { MenuItem, TextField } from '@mui/material'
 import { useState } from 'react'
 import BorderColorSharpIcon from '@mui/icons-material/BorderColorSharp'
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
 
 const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
   const endOfEntiresMessaging = 'End of list'
@@ -55,7 +56,18 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
                 <li key={i} id={i} className="py-1">
                   <div className="">
                     <div className="bg-white flex flex-row border border-slate-300 rounded-md">
-                      <p className="w-full text-center font-thin pt-4 pl-4 pb-4 pr-10">
+                      <button
+                        onClick={(e) => {
+                          handleEditAffirmationClick(e)
+                        }}
+                        className="border-r border-slate-300 cursor-pointer p-1"
+                      >
+                        <DragIndicatorIcon
+                          fontSize="small"
+                          style={{ color: 'silver' }}
+                        />
+                      </button>
+                      <p className="w-full text-center font-thin py-4 px-4">
                         {item}
                       </p>
                       <button
