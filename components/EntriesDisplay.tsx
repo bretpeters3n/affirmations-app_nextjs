@@ -60,7 +60,7 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
                         onClick={(e) => {
                           handleEditAffirmationClick(e)
                         }}
-                        className="border-r border-slate-300 cursor-pointer p-1"
+                        className="border-r border-slate-300 cursor-move p-1"
                       >
                         <DragIndicatorIcon
                           fontSize="small"
