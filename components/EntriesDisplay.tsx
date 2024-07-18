@@ -4,6 +4,11 @@
 import { useState } from 'react'
 import BorderColorSharpIcon from '@mui/icons-material/BorderColorSharp'
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
+import { DndContext, DragEndEvent } from '@dnd-kit/core'
+import { SortableContext, arrayMove } from '@dnd-kit/sortable'
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
   const endOfEntiresMessaging = 'End of list'
@@ -23,6 +28,25 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
     //     affirmationId: editId,
     //   },
     // }); // Pass optional second argument
+  }
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event
+    if (over && active.id !== over.id) {
+      setCurrentEntries((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id)
+        const newIndex = items.findIndex((item) => item.id === over.id)
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
+
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
   }
 
   return (
@@ -52,39 +76,51 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
             </p>
           ) : (
             <ul>
-              {currentEntries.map((item, i) => (
-                <li key={i} id={i} className="py-1">
-                  <div className="">
-                    <div className="bg-white flex flex-row border border-slate-300 rounded-md">
-                      <button
-                        onClick={(e) => {
-                          handleEditAffirmationClick(e)
-                        }}
-                        className="border-r border-slate-300 cursor-move p-1"
-                      >
-                        <DragIndicatorIcon
-                          fontSize="small"
-                          style={{ color: 'silver' }}
-                        />
-                      </button>
-                      <p className="w-full text-center font-thin py-4 px-4">
-                        {item}
-                      </p>
-                      <button
-                        onClick={(e) => {
-                          handleEditAffirmationClick(e)
-                        }}
-                        className="cardEdit cursor-pointer rounded-tr rounded-br"
-                      >
-                        <BorderColorSharpIcon
-                          fontSize="small"
-                          style={{ color: 'white' }}
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
+              <DndContext
+                modifiers={[restrictToVerticalAxis]}
+                onDragEnd={handleDragEnd}
+              >
+                <SortableContext items={currentEntries}>
+                  {currentEntries.map((item, i) => (
+                    <li
+                      ref={setNodeRef}
+                      style={style}
+                      key={i}
+                      id={i}
+                      className="py-1"
+                    >
+                      <div className="">
+                        <div className="bg-white flex flex-row border border-slate-300 rounded-md">
+                          <button
+                            {...attributes}
+                            {...listeners}
+                            className="border-r border-slate-300 cursor-move touch-none p-1"
+                          >
+                            <DragIndicatorIcon
+                              fontSize="small"
+                              style={{ color: 'silver' }}
+                            />
+                          </button>
+                          <p className="w-full text-center font-thin py-4 px-4">
+                            {item}
+                          </p>
+                          <button
+                            onClick={(e) => {
+                              handleEditAffirmationClick(e)
+                            }}
+                            className="cardEdit cursor-pointer rounded-tr rounded-br"
+                          >
+                            <BorderColorSharpIcon
+                              fontSize="small"
+                              style={{ color: 'white' }}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </SortableContext>
+              </DndContext>
               {/* <li>{endOfEntiresMessaging}</li> */}
             </ul>
           )}
