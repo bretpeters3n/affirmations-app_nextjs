@@ -21,6 +21,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Affirmations App',
   description: 'Motivate yourself to do what you do;)',
+  icons: {
+    icon: '/favicon-32x32.png', // /public path
+  },
 }
 
 export default function RootLayout({
