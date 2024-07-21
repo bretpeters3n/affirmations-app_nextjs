@@ -9,23 +9,27 @@ import EntriesDisplay from '@/components/AffList'
 import importedSampleEntries from '@/db/sampleEntries'
 
 const SavedAffirmations = async () => {
-  // const sampleEntries = importedSampleEntries
+  const sampleEntries = importedSampleEntries
   const user = await getUserByClerkID()
 
-  const getUser = await prisma.user.findUnique({
-    where: {
-      id: user.id,
-    },
-    select: {
-      // email: true,
-      currentGroupId: true,
-      entries: true,
-    },
-  })
+  // const getUser = await prisma.user.findUnique({
+  //   where: {
+  //     id: user.id,
+  //   },
+  //   select: {
+  //     // email: true,
+  //     currentGroupId: true,
+  //     entries: true,
+  //   },
+  // })
 
-  const userCurrentGroupId = getUser.currentGroupId
+  // const userCurrentGroupId = getUser.currentGroupId
+  const userCurrentGroupId = 'fkuT6N'
 
-  const userEntries = getUser.entries
+  // const userEntries = getUser.entries
+  const userEntries = sampleEntries.find(
+    (x) => x.id === userCurrentGroupId
+  ).content
 
   const userEntryIds = userEntries.map(({ id }) => id)
   const userEntryTitles = userEntries.map(({ title }) => title)

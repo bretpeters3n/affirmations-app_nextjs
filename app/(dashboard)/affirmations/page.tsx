@@ -7,20 +7,21 @@ const Affirmations = async () => {
   const sampleEntries = importedSampleEntries
   const user = await getUserByClerkID()
 
-  const getUser = await prisma.user.findUnique({
-    where: {
-      id: user.id,
-    },
-    select: {
-      // email: true,
-      currentGroupId: true,
-      entries: true,
-    },
-  })
+  // const getUser = await prisma.user.findUnique({
+  //   where: {
+  //     id: user.id,
+  //   },
+  //   select: {
+  //     // email: true,
+  //     currentGroupId: true,
+  //     entries: true,
+  //   },
+  // })
 
   // const userEntries = getUser.entries
   // const userEmail = getUser.email
-  const userCurrentGroupId = getUser.currentGroupId
+  // const userCurrentGroupId = getUser.currentGroupId
+  const userCurrentGroupId = 'fkuT6N'
 
   const currentEntries = sampleEntries.find(
     (x) => x.id === userCurrentGroupId
