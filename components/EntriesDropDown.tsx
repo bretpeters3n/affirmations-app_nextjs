@@ -2,7 +2,7 @@
 
 import { MenuItem, TextField } from '@mui/material'
 import { useState } from 'react'
-import EntriesDisplay from './EntriesDisplay'
+import EntriesDisplay from './AffList'
 
 const EntriesDropDown = ({
   id,

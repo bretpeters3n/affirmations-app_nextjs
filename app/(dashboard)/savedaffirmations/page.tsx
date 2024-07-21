@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EntriesDropDown from '@/components/EntriesDropDown'
-import EntriesDisplay from '@/components/EntriesDisplay'
+import EntriesDisplay from '@/components/AffList'
 import importedSampleEntries from '@/db/sampleEntries'
 
 const SavedAffirmations = async () => {
