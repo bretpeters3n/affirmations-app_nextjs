@@ -23,7 +23,7 @@ const EntriesDropDown = ({
   const [currentId, setCurrentId] = useState(id)
   const [currentEntries, setCurrentEntries] = useState(content)
   const [currentUserEntries, setCurrentUserEntries] = useState(userEntries)
-  console.log('currentUserEntries: ' + currentUserEntries)
+  console.log('currentUserEntries: ' + JSON.stringify(currentUserEntries))
   console.log('currentTitle: ' + currentTitle)
   return (
     <>

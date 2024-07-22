@@ -6,18 +6,58 @@ import { useState } from 'react'
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 import { SortableContext, arrayMove } from '@dnd-kit/sortable'
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
-import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
+// import { useSortable } from '@dnd-kit/sortable'
+// import { CSS } from '@dnd-kit/utilities'
 import AffItem from './AffItem'
+import { User, Affs } from '@/utils/types'
+import { dummyData, dummyAffs } from '@/utils/dummyData'
 
-const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
+// const dummyAffs: Affs[] = [
+//   {
+//     id: 1,
+//     content: 'You got this',
+//   },
+//   {
+//     id: 2,
+//     content: 'You’ll figure it out',
+//   },
+//   {
+//     id: 3,
+//     content: 'You’re a smart cookie',
+//   },
+//   {
+//     id: 4,
+//     content: 'I believe in you',
+//   },
+//   {
+//     id: 5,
+//     content:
+//       'Sucking at something is the first step towards being good at something',
+//   },
+// ]
+// const dummyData: User[] = [
+//   {
+//     id: 'fkuT6N',
+//     title: 'Default Affirmations',
+//     content: dummyAffs,
+//   },
+// ]
+
+const EntriesDisplay = (/*{ id, title, content, sampleEntries }*/) => {
   const endOfEntiresMessaging = 'End of list'
 
-  // const [currentTitle, setCurrentTitle] = useState(title)
-  // console.log('currentTitle: ' + currentTitle)
+  // const [currentTitle, setCurrentTitle] = useState<User[]>(dummyData.title)
+  const [currentTitle, setCurrentTitle] = useState('Default Affirmations')
+  console.log('currentTitle: ' + currentTitle)
 
-  const [currentEntries, setCurrentEntries] = useState(content)
-  console.log('currentEntries: ' + currentEntries)
+  const title = currentTitle
+
+  // const [currentEntries, setCurrentEntries] = useState(content)
+  const [userData, setUserData] = useState<User[]>(dummyData)
+  const [currentEntries, setCurrentEntries] = useState<Affs[]>(dummyAffs)
+
+  console.log('currentEntries: ' + JSON.stringify(currentEntries))
+  console.log('dummyData: ' + JSON.stringify(dummyData))
 
   const handleEditAffirmationClick = (e) => {
     let editEl = e.target.closest('li')
@@ -41,13 +81,15 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
     }
   }
 
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id })
+  // const { id, title, content } = currentEntries
 
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  }
+  // const { attributes, listeners, setNodeRef, transform, transition } =
+  //   useSortable({ id })
+
+  // const style = {
+  //   transform: CSS.Transform.toString(transform),
+  //   transition,
+  // }
 
   return (
     <div
@@ -82,7 +124,7 @@ const EntriesDisplay = ({ id, title, content, sampleEntries }) => {
               >
                 <SortableContext items={currentEntries}>
                   {currentEntries.map((item) => (
-                    <AffItem key={item} aff={item} />
+                    <AffItem key={item.id} affs={item} />
                     // <div
                     //   ref={setNodeRef}
                     //   style={style}

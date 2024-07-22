@@ -4,9 +4,8 @@ import BorderColorSharpIcon from '@mui/icons-material/BorderColorSharp'
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
 
 const AffItem = (props) => {
-  const { aff } = props
-  const { item } = aff
-  const id = item
+  const { affs } = props
+  const { id, content } = affs
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id })
 
@@ -27,7 +26,7 @@ const AffItem = (props) => {
   }
 
   return (
-    <li ref={setNodeRef} style={style} key={item} id={id} className="py-1">
+    <li ref={setNodeRef} style={style} key={id} id={id} className="py-1">
       <div className="">
         <div className="bg-white flex flex-row border border-slate-300 rounded-md">
           <button
@@ -37,7 +36,7 @@ const AffItem = (props) => {
           >
             <DragIndicatorIcon fontSize="small" style={{ color: 'silver' }} />
           </button>
-          <p className="w-full text-center font-thin py-4 px-4">{item}</p>
+          <p className="w-full text-center font-thin py-4 px-4">{content}</p>
           <button
             onClick={(e) => {
               handleEditAffirmationClick(e)

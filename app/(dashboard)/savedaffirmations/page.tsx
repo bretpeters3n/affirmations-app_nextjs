@@ -6,10 +6,11 @@ import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EntriesDropDown from '@/components/EntriesDropDown'
 import EntriesDisplay from '@/components/AffList'
-import importedSampleEntries from '@/db/sampleEntries'
+// import importedSampleEntries from '@/db/sampleEntries'
+import { dummyData, dummyAffs } from '@/utils/dummyData'
 
 const SavedAffirmations = async () => {
-  const sampleEntries = importedSampleEntries
+  // const sampleEntries = importedSampleEntries
   const user = await getUserByClerkID()
 
   // const getUser = await prisma.user.findUnique({
@@ -25,22 +26,25 @@ const SavedAffirmations = async () => {
 
   // const userCurrentGroupId = getUser.currentGroupId
   const userCurrentGroupId = 'fkuT6N'
+  const currentTitle = 'Default Affirmations'
 
   // const userEntries = getUser.entries
-  const userEntries = sampleEntries.find(
-    (x) => x.id === userCurrentGroupId
-  ).content
+  const userEntries = dummyData.find((x) => x.id === userCurrentGroupId).content
 
   const userEntryIds = userEntries.map(({ id }) => id)
   const userEntryTitles = userEntries.map(({ title }) => title)
 
-  const currentEntries = userEntries.find(
-    (x) => x.id === userCurrentGroupId
-  ).content
-  const currentId = userEntries.find((x) => x.id === userCurrentGroupId).id
-  const currentTitle = userEntries.find(
-    (x) => x.id === userCurrentGroupId
-  ).title
+  // commeting out to debug
+  // const currentEntries = userEntries.find(
+  //   (x) => x.id === userCurrentGroupId
+  // ).content
+  // commeting out to debug
+  // const currentId = userEntries.find((x) => x.id === userCurrentGroupId).id
+  // commeting out to debug
+  // const currentTitle = userEntries.find(
+  //   (x) => x.id === userCurrentGroupId
+  // ).title
+
   // const currentEntries = sampleEntries.find(
   //   (x) => x.id === userCurrentGroupId
   // ).content
@@ -48,13 +52,18 @@ const SavedAffirmations = async () => {
   // const currentTitle = sampleEntries.find(
   //   (x) => x.id === userCurrentGroupId
   // ).title
-  console.log('currentTitle: ' + currentTitle)
-  console.log('currentId: ' + currentId)
+
+  // commeting out to debug
+  // console.log('currentTitle: ' + currentTitle)
+  // console.log('currentId: ' + currentId)
+
   console.log('userCurrentGroupId: ' + userCurrentGroupId)
   console.log('userEntries: ' + userEntries)
   console.log('userEntryIds: ' + userEntryIds)
   console.log('userEntryTitles: ' + userEntryTitles)
-  console.log('currentEntries: ' + currentEntries)
+
+  // commeting out to debug
+  // console.log('currentEntries: ' + currentEntries)
 
   return (
     <section className="">
@@ -63,9 +72,12 @@ const SavedAffirmations = async () => {
       </h1>
       <div className="search-params">
         <EntriesDropDown
-          id={currentId}
+          // commeting out to debug
+          // id={currentId}
+          id={userCurrentGroupId}
+          // title={currentTitle}
           title={currentTitle}
-          content={currentEntries}
+          // content={currentEntries}
           userEntries={userEntries}
           userEntryIds={userEntryIds}
           userEntryTitles={userEntryTitles}
